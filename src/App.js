@@ -4,19 +4,14 @@ import { ReactComponent as ReactLogo } from "./logo.svg";
 import React from "react";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
+  // uncomment the constructor if you want to make violation of eslint to check
+  // constructor(props) {
+  //   super(props);
+  //   const neverUsed = "neverUsed";
+  //   const neverUsedRegex = "neverUsedRegex";
+  // }
 
-    // uncomment here to check eslint
-    // let major;
-    // let minor;
-    // const add = (x, y) => {
-    //   return x + y;
-    // };
-  }
-
-  handleClick() {
+  transform() {
     const banner = document.getElementById("banner-message");
     banner.classList.contains("alt")
       ? banner.classList.remove("alt")
@@ -28,10 +23,8 @@ class App extends React.Component {
       <div>
         <div id="banner-message">
           <p>Hello React</p>
-          <p>
-            <ReactLogo />
-          </p>
-          <button onClick={this.handleClick}>transform</button>
+          <ReactLogo />
+          <button onClick={() => this.transform()}>transform</button>
         </div>
       </div>
     );
