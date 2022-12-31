@@ -37,7 +37,7 @@ class App extends React.Component {
         <div id="banner-message">
           <p>Hello React</p>
           <ReactLogo />
-          <button onClick={() => this.transform()}>press Enter to Transeform!!</button>
+          <button onClick={() => this.transform()}>press Enter to Transeform</button>
         </div>
       </div>
     );
