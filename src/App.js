@@ -10,6 +10,19 @@ class App extends React.Component {
   //   const neverUsed = "neverUsed";
   //   const neverUsedRegex = "neverUsedRegex";
   // }
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown = (event) => {
+    if (event.code === "Enter") {
+      this.transform();
+    }
+  };
 
   transform() {
     const banner = document.getElementById("banner-message");
@@ -24,7 +37,7 @@ class App extends React.Component {
         <div id="banner-message">
           <p>Hello React</p>
           <ReactLogo />
-          <button onClick={() => this.transform()}>transform</button>
+          <button onClick={() => this.transform()}>press Enter to Transeform!!</button>
         </div>
       </div>
     );

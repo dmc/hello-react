@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Monoton&display=swap");
 
 body {
   background: black;
   padding: 20px;
-  font-family: Monoton, Helvetica;
+  font-family: Audiowide, Helvetica;
 }
 
 #banner-message {
