@@ -1,47 +1,31 @@
 import "./App.css";
 import { ReactComponent as ReactLogo } from "./logo.svg";
+import React, { useState, useEffect } from "react";
 
-import React from "react";
+function App() {
+  const [alt, setAlt] = useState(false);
 
-class App extends React.Component {
-  // uncomment the constructor if you want to make violation of eslint to check
-  // constructor(props) {
-  //   super(props);
-  //   const neverUsed = "neverUsed";
-  //   const neverUsedRegex = "neverUsedRegex";
-  // }
-  componentDidMount() {
-    document.addEventListener("keydown", this.handleKeyDown);
-  }
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.code === "Enter") {
+        setAlt(!alt);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [alt]);
 
-  componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleKeyDown);
-  }
-
-  handleKeyDown = (event) => {
-    if (event.code === "Enter") {
-      this.transform();
-    }
-  };
-
-  transform() {
-    const banner = document.getElementById("banner-message");
-    banner.classList.contains("alt")
-      ? banner.classList.remove("alt")
-      : banner.classList.add("alt");
-  }
-
-  render() {
-    return (
-      <div>
-        <div id="banner-message">
-          <p>Hello React</p>
-          <ReactLogo />
-          <button onClick={() => this.transform()}>press Enter to Transeform</button>
-        </div>
+  return (
+    <div>
+      <div id="banner-message" className={alt ? "alt" : ""}>
+        <p>Hello React</p>
+        <ReactLogo />
+        <button onClick={() => setAlt(!alt)}>press Enter to Transform</button>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
