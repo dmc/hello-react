@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.code === "Enter") {
+      if (event.code === "Enter" || event.code === "Space") {
         setAlt(!alt);
       }
     };
@@ -22,7 +22,7 @@ function App() {
       <div id="banner-message" className={alt ? "alt" : ""}>
         <p>Hello React</p>
         <ReactLogo />
-        <button onClick={() => setAlt(!alt)}>press Enter to Transform</button>
+        <button onClick={() => setAlt(!alt)}>Click to Transform</button>
       </div>
     </div>
   );
